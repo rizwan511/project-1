@@ -38,5 +38,9 @@ jobs:
           pip install --upgrade pip
           pip install buildozer
 
+      - name: Install distutils
+        run: |
+          sudo apt-get install python3-distutils
+
       - name: Build APK
         run: buildozer -v android debug
