@@ -1,5 +1,3 @@
-name: Build APK
-
 on:
   push:
     branches:
@@ -33,14 +31,14 @@ jobs:
             build-essential \
             ccache
 
+      - name: Install distutils
+        run: |
+          sudo apt install -y python3-distutils
+
       - name: Install buildozer
         run: |
           pip install --upgrade pip
           pip install buildozer
-
-      - name: Install distutils
-        run: |
-          sudo apt-get install python3-distutils
 
       - name: Build APK
         run: buildozer -v android debug
